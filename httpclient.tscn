@@ -1,0 +1,157 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6pgkynwiesrm"]
+
+[ext_resource type="Script" path="res://HttpTestClient.gd" id="1_ty10l"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ty10l")
+
+[node name="output" type="Node2D" parent="."]
+
+[node name="responseWindowLabel" type="Label" parent="output"]
+offset_left = 32.0
+offset_top = 171.0
+offset_right = 173.0
+offset_bottom = 198.0
+text = "Response Window"
+
+[node name="responseWindow" type="TextEdit" parent="output"]
+offset_left = 32.0
+offset_top = 227.0
+offset_right = 1622.0
+offset_bottom = 1055.0
+text = "click on send,  to send a single request to the given adress and port
+
+click on fire to make amount of *Connections* and each connection send *Request per Connection* amount of requests
+
+for example 10 Connections with 5 requests will be 50 requests in total"
+editable = false
+
+[node name="loopsWindow" type="TextEdit" parent="output"]
+offset_left = 1655.0
+offset_top = 227.0
+offset_right = 1761.0
+offset_bottom = 264.0
+editable = false
+
+[node name="loopsWindowLabel" type="Label" parent="output"]
+offset_left = 1655.0
+offset_top = 171.0
+offset_right = 1753.0
+offset_bottom = 198.0
+text = "Connecions"
+
+[node name="requestsWindowLabel" type="Label" parent="output"]
+offset_left = 1805.0
+offset_top = 172.0
+offset_right = 1895.0
+offset_bottom = 199.0
+text = "Requests"
+
+[node name="requestsWindow" type="TextEdit" parent="output"]
+offset_left = 1805.0
+offset_top = 227.0
+offset_right = 1911.0
+offset_bottom = 264.0
+editable = false
+
+[node name="input" type="Node2D" parent="."]
+
+[node name="targetEntry" type="LineEdit" parent="input"]
+offset_left = 171.0
+offset_top = 75.0
+offset_right = 596.0
+offset_bottom = 120.0
+text = "127.0.0.1"
+
+[node name="targetLabel" type="Label" parent="input/targetEntry"]
+offset_top = -39.0
+offset_right = 94.0
+offset_bottom = -16.0
+text = "Address"
+
+[node name="portEntry" type="LineEdit" parent="input"]
+offset_left = 634.0
+offset_top = 75.0
+offset_right = 728.0
+offset_bottom = 120.0
+text = "80"
+
+[node name="portLabel" type="Label" parent="input/portEntry"]
+offset_top = -39.0
+offset_right = 94.0
+offset_bottom = -12.0
+text = "Port"
+
+[node name="send" type="Button" parent="input"]
+offset_left = 763.0
+offset_top = 75.0
+offset_right = 857.0
+offset_bottom = 120.0
+text = "send"
+
+[node name="connectionsEntry" type="LineEdit" parent="input"]
+offset_left = 1120.0
+offset_top = 75.0
+offset_right = 1214.0
+offset_bottom = 120.0
+text = "10"
+
+[node name="connectionsLabel" type="Label" parent="input/connectionsEntry"]
+offset_top = -39.0
+offset_right = 96.0
+offset_bottom = -12.0
+text = "Connections"
+
+[node name="sendLoop" type="Button" parent="input"]
+offset_left = 1294.0
+offset_top = 176.0
+offset_right = 1388.0
+offset_bottom = 221.0
+text = "fire"
+
+[node name="requestsEntry" type="LineEdit" parent="input"]
+offset_left = 1120.0
+offset_top = 170.0
+offset_right = 1214.0
+offset_bottom = 215.0
+text = "5"
+
+[node name="requestsLabel" type="Label" parent="input/requestsEntry"]
+offset_top = -39.0
+offset_right = 186.0
+offset_bottom = -12.0
+text = "Request per Connection"
+
+[node name="selectMethod" type="OptionButton" parent="input"]
+offset_left = 32.0
+offset_top = 75.0
+offset_right = 151.0
+offset_bottom = 120.0
+item_count = 4
+selected = 0
+fit_to_longest_item = false
+popup/item_0/text = "GET"
+popup/item_0/id = 0
+popup/item_1/text = "POST"
+popup/item_1/id = 1
+popup/item_2/text = "DELETE"
+popup/item_2/id = 2
+popup/item_3/text = "PUT"
+popup/item_3/id = 3
+
+[node name="methodLabel" type="Label" parent="input/selectMethod"]
+offset_top = -39.0
+offset_right = 119.0
+offset_bottom = -12.0
+text = "Method"
+
+[node name="stop" type="Button" parent="input"]
+offset_left = 1660.0
+offset_top = 34.0
+offset_right = 1834.0
+offset_bottom = 119.0
+text = "stop"
+
+[connection signal="pressed" from="input/send" to="." method="_on_send_pressed"]
+[connection signal="pressed" from="input/sendLoop" to="." method="_on_send_loop"]
+[connection signal="pressed" from="input/stop" to="." method="_stop_all"]
