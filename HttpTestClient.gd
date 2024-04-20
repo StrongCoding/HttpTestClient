@@ -27,29 +27,35 @@ func _on_send_loop():
 	var i = 0
 	var loops = int($input/connectionsEntry.text)
 	while i < loops:
-		_on_send_pressed()
+		_make_http_connection()
 		i+=1
 		$output/loopsWindow.text = str(i)
 		if stop:
 			return
+	is_siege = false
 
 func _are_inputs_set() -> bool:
 	var url = $input/targetEntry.text
 	var port = $input/portEntry.text
 	var method = $input/selectMethod.get_selected_id()
-	if url == "" or port == "" or method == -1:
+	var file = $input/fileEntry.text
+	if url == "" or port == "" or file == "" or method == -1:
 		return false
 	return true
 	
 
 func _on_send_pressed():
-
+	connection_count = 0
+	request_count = 0
 	stop = false
 	if not _are_inputs_set():
 		$output/responseWindow.text = "Please fill all fields"
 		return
+	_make_http_connection()
 
+func _make_http_connection():
 	var url = $input/targetEntry.text
+	var file = $input/fileEntry.text
 	var method
 	var request_to_do
 	match $input/selectMethod.get_selected_id():
@@ -77,7 +83,7 @@ func _on_send_pressed():
 		http.poll()
 		counter += 1
 		$output/responseWindow.text = "Connecting... Tries: " + str(counter)
-		await get_tree().process_frame
+#		await get_tree().process_frame
 		if stop:
 			return
 
@@ -98,7 +104,7 @@ func _on_send_pressed():
 			"User-Agent: Pirulo/1.0 (Godot)",
 			"Accept: */*"
 		]
-		err = http.request(method, "/", headers) # Request a page from the site (this one was chunked..)
+		err = http.request(method, file, headers) # Request a page from the site (this one was chunked..)
 		if err != OK:
 			$output/responseWindow.text = "Failed to request: " + str(err)
 			return

@@ -59,7 +59,7 @@ editable = false
 [node name="targetEntry" type="LineEdit" parent="input"]
 offset_left = 171.0
 offset_top = 75.0
-offset_right = 596.0
+offset_right = 390.0
 offset_bottom = 120.0
 text = "127.0.0.1"
 
@@ -70,9 +70,9 @@ offset_bottom = -16.0
 text = "Address"
 
 [node name="portEntry" type="LineEdit" parent="input"]
-offset_left = 634.0
+offset_left = 728.0
 offset_top = 75.0
-offset_right = 728.0
+offset_right = 822.0
 offset_bottom = 120.0
 text = "80"
 
@@ -83,9 +83,9 @@ offset_bottom = -12.0
 text = "Port"
 
 [node name="send" type="Button" parent="input"]
-offset_left = 763.0
+offset_left = 857.0
 offset_top = 75.0
-offset_right = 857.0
+offset_right = 951.0
 offset_bottom = 120.0
 text = "send"
 
@@ -151,6 +151,19 @@ offset_top = 34.0
 offset_right = 1834.0
 offset_bottom = 119.0
 text = "stop"
+
+[node name="fileEntry" type="LineEdit" parent="input"]
+offset_left = 412.0
+offset_top = 75.0
+offset_right = 631.0
+offset_bottom = 120.0
+text = "/"
+
+[node name="fileLabel" type="Label" parent="input/fileEntry"]
+offset_top = -39.0
+offset_right = 94.0
+offset_bottom = -16.0
+text = "File"
 
 [connection signal="pressed" from="input/send" to="." method="_on_send_pressed"]
 [connection signal="pressed" from="input/sendLoop" to="." method="_on_send_loop"]
