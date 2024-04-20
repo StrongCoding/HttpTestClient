@@ -7,7 +7,7 @@ Wrote a little test client in Godot, for testing our c++ webserver.
 
 how to use:
 
-click on send,  to send a single request to the given adress, file and port for example www.website.com/index.html
+click on send,  to send a single request to the given adress, file and port for example https://github.com/StrongCoding/HttpTestClient/edit/main/README.md
 
 click on fire to make amount of *Connections* and each connection send *Request per Connection* amount of requests
 
