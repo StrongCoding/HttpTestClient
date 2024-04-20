@@ -7,13 +7,6 @@ script = ExtResource("1_ty10l")
 
 [node name="output" type="Node2D" parent="."]
 
-[node name="responseWindowLabel" type="Label" parent="output"]
-offset_left = 32.0
-offset_top = 171.0
-offset_right = 173.0
-offset_bottom = 198.0
-text = "Response Window"
-
 [node name="responseWindow" type="TextEdit" parent="output"]
 offset_left = 32.0
 offset_top = 227.0
@@ -26,6 +19,12 @@ click on fire to make amount of *Connections* and each connection send *Request 
 for example 10 Connections with 5 requests will be 50 requests in total"
 editable = false
 
+[node name="responseWindowLabel" type="Label" parent="output/responseWindow"]
+offset_top = -56.0
+offset_right = 141.0
+offset_bottom = -29.0
+text = "Response Window"
+
 [node name="loopsWindow" type="TextEdit" parent="output"]
 offset_left = 1655.0
 offset_top = 227.0
@@ -33,19 +32,11 @@ offset_right = 1761.0
 offset_bottom = 264.0
 editable = false
 
-[node name="loopsWindowLabel" type="Label" parent="output"]
-offset_left = 1655.0
-offset_top = 171.0
-offset_right = 1753.0
-offset_bottom = 198.0
+[node name="loopsWindowLabel" type="Label" parent="output/loopsWindow"]
+offset_top = -56.0
+offset_right = 98.0
+offset_bottom = -29.0
 text = "Connecions"
-
-[node name="requestsWindowLabel" type="Label" parent="output"]
-offset_left = 1805.0
-offset_top = 172.0
-offset_right = 1895.0
-offset_bottom = 199.0
-text = "Requests"
 
 [node name="requestsWindow" type="TextEdit" parent="output"]
 offset_left = 1805.0
@@ -53,6 +44,12 @@ offset_top = 227.0
 offset_right = 1911.0
 offset_bottom = 264.0
 editable = false
+
+[node name="requestsWindowLabel" type="Label" parent="output/requestsWindow"]
+offset_top = -55.0
+offset_right = 90.0
+offset_bottom = -28.0
+text = "Requests"
 
 [node name="input" type="Node2D" parent="."]
 
